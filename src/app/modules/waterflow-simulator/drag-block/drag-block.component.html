@@ -1,0 +1,58 @@
+<div class="ui card">
+  <div class="content">
+    <div class="header">Waterflow Simulator</div>
+  </div>
+  <div class="content">
+    <div class="ui small feed">
+      <div class="event">
+        <div class="content startSimulate">
+          <label>Drag the obstructions and place it inside the grid.</label>
+          <br /><br />
+          <div class="ui grid">
+            <div class="ten wide column">
+              <div class="ui grid createGrid">
+                <ng-container *ngFor="let data of this.array2D; let row = index">
+                  <div class="row">
+                    <ng-container *ngFor="let cell of data; let column = index">
+                      <div class="two wide column">
+                        <div id="div1" (drop)="drop($event, row, column)" (dragover)="allowDrop($event)">
+                        </div>
+                      </div>
+                    </ng-container>
+                  </div>
+                </ng-container>
+              </div>
+            </div>
+
+            <div class="three wide column">
+              <!-- <div class="ui grid">
+              <div
+                class="three wide column"
+                
+              > -->
+              <ng-container *ngFor="let cell of this.obstructions; let i = index">
+                <div id="div2" (drop)="drop($event,undefined,undefined)" (dragover)="allowDrop($event)">
+                  <img
+                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAR8AAACwCAMAAAABtJrwAAAAY1BMVEUAAAD////+/vacnaX++v////oBAAiYm6n9//T7+/+fpq8BAAT//f/4/v0DByIBAAydn6P9+fX7//r4+Pn3+PG/w8uVm6CaoKGTmpv0/f6jpqwBEBkADBQIAAIACBUCAwCSlZxL1hQvAAACFElEQVR4nO3TzVITQRSA0enAIDGMBhDwH97/KZ0gVBnUbwuLc6o3vbv13e7p8vR0e3W+mTccGWPezGNMl6fb7XI1X2w5crEGOvTZXG8H/zV9Gje3d3f7E47t93efl2VM8/g68W9fnvrspjP+svv2Zf1f47HP4fCnH7vp+3Ofw+21t/XWrH1+HvpcjPfT7uz+7LX39dbsPk4flnH+1GfS5wV9mj5Nn6ZP06fp0/Rp+jR9mj5Nn6ZP06fp0/Rp+jR9mj5Nn6ZP06fp0/Rp+jR9mj5Nn6ZP06fp0/Rp+jR9mj5Nn6ZP06fp0/Rp+jR9mj5Nn6ZP06fp0/Rp+jR9mj5Nn6ZP06fp0/Rp+jR9mj5Nn6ZP06fp0/Rp+jR9mj5Nn6ZP06fp0/Rp+jR9mj5Nn6ZP06fp0/Rp+jR9mj5Nn6ZP06fp0/Rp+jR9mj5Nn6ZP06fp0/Rp+jR9mj5Nn6ZP06fp0/Rp+jR9mj5Nn6ZP06fp0/Rp+jR9mj5Nn6ZP06fp0/Rp+jR9mj5Nn6ZP06fp0/Rp+jR9mj5Nn6ZP06fp0/Rp+jR9mj5Nn6ZP06fp0/Rp+jR9mj5Nn6ZP06fp0/Rp+jR9mj5Nn6ZP06fp0/Rp+rTnPuOxz70+L5w99bke+9ce5c1axpiW5eZhv3rHkZP97cNY+1xdrZVWM0fGb9Nmvr4+5DnnyLIc3s289hnjYszjlCNjWaPM8y/g8IDnKHeLagAAAABJRU5ErkJggg=="
+                    draggable="true" (dragstart)="drag1($event)" id="drag {{ i }}" width="50" height="50" />
+                </div>
+              </ng-container>
+              <!-- </div>
+            </div> -->
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="extra content">
+    <button class="ui black basic button" (click)="back()">Back</button>
+    <button class="ui black basic button" (click)="start()" [disabled]="this.enableSimulationButton">
+      Start Simulation
+    </button>
+
+    <!--  -->
+  </div>
+</div>

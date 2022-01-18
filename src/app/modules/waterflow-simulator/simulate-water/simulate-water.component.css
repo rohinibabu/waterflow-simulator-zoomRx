@@ -1,0 +1,128 @@
+p {
+    font-family: Lato;
+  }
+  
+  .card {
+    border: 1px solid black;
+  }
+  
+  .ui.grid > .column:not(.row),
+  .ui.grid > .row > .column {
+    padding-left: 0;
+    padding-right: 0;
+    text-align: center;
+  }
+  
+  .ui.grid > .row {
+    padding-top: 0px;
+    padding-bottom: 0px;
+  }
+  
+  .ui.grid {
+    margin-left: 16px;
+  }
+  
+  .gridCreation {
+    margin-left: 16px;
+    margin-right: 16px;
+  }
+  
+  .ui.button {
+    margin-left: 16px;
+  }
+  
+  #div1,
+  #div2 {
+    float: left;
+    width: 50px;
+    height: 50px;
+    margin: 0px;
+    padding: 0px;
+    border: 1px solid black;
+  }
+  #div5 {
+    float: left;
+    width: 50px;
+    height: 50px;
+    margin: 0px;
+    padding: 0px;
+  }
+  
+  .ui.card > .content,
+  .ui.cards > .card > .content {
+    font-size: 24px;
+    border-top: 0;
+    margin-top: 10px;
+  }
+  .ui.card {
+    border-radius: 0;
+    margin-left: 15%;
+      width: 70%;
+      margin-top: 35px;
+  }
+  .header {
+    font-size: 34px;
+    margin-left: 45px;
+  }
+  .ui.sub.header {
+    text-transform: capitalize;
+    font-size: 16px;
+    margin-left: 45px;
+    margin-top: -20px;
+  }
+  .extra.content {
+    margin-left: 35px;
+  }
+  .gridCreation {
+    margin-left: 45px;
+    margin-top: 12px;
+  }
+  .ui.grid.createGrid {
+    margin-left: 0px;
+    margin-top: -2px;
+  }
+  .startSimulate {
+    margin-left: 45px;
+  }
+  .flowWater {
+    margin-left: 45px;
+    margin-top: -30px;
+  }
+  .ui.black.basic.button {
+    border-radius: 0 !important;
+    margin-bottom: 10px;
+  }
+  
+  #div3,
+  #div4 {
+    float: left;
+    width: 100px;
+    height: 35px;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid black;
+  }
+  
+  #div2 {
+    background-color: lightgray;
+  }
+  
+  .boxSkyBlue {
+    background-color: skyblue;
+  }
+  .boxDarkBlue {
+    background-color: darkblue;
+  }
+  
+  .boxWhite {
+    background-color: white;
+    border: 0;
+  }
+  
+  .ui.column.grid>[class*="two wide"].column, .ui.grid>.column.row>[class*="two wide"].column, .ui.grid>.row>[class*="two wide"].column, .ui.grid>[class*="two wide"].column {
+    width: 9.6%!important;
+  }
+
+  .three.wide.column{
+    margin-left: -32px;
+  }

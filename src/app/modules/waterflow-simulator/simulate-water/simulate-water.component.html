@@ -1,0 +1,120 @@
+<div class="ui card" *ngIf="waterFlowPointSelectPanel == true">
+  <div class="content">
+    <div class="header">Waterflow Simulator</div>
+  </div>
+  <div class="content">
+    <div class="ui small feed">
+      <div class="event">
+        <div class="content flowWater">
+          <label>Select the waterflow start point by clicking on any of the blue
+            boxes.</label>
+          <br /><br />
+
+          <div class="ui grid">
+            <div class="ten wide column">
+              <div class="ui grid createGrid">
+                <div class="row">
+                  <div class="two wide column" *ngFor="let box of this.waterFlowArray; let flowpoint = index">
+                    <div id="div5" [ngClass]="{
+                      boxSkyBlue: box == 'lightblue',
+                      boxDarkBlue: box == 'darkblue',
+                      boxWhite: box == 'nocolor'
+                    }" (click)="startWaterFlow(flowpoint)"></div>
+                  </div>
+                </div>
+                <div class="row" *ngFor="let data of this.array2DWithBlock; let row = index">
+                  <div class="two wide column" *ngFor="let cell of data; let column = index">
+                    <div id="div1">
+                      <img *ngIf="this.array2DWithBlock[row][column] == 'B'"
+                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAR8AAACwCAMAAAABtJrwAAAAY1BMVEUAAAD////+/vacnaX++v////oBAAiYm6n9//T7+/+fpq8BAAT//f/4/v0DByIBAAydn6P9+fX7//r4+Pn3+PG/w8uVm6CaoKGTmpv0/f6jpqwBEBkADBQIAAIACBUCAwCSlZxL1hQvAAACFElEQVR4nO3TzVITQRSA0enAIDGMBhDwH97/KZ0gVBnUbwuLc6o3vbv13e7p8vR0e3W+mTccGWPezGNMl6fb7XI1X2w5crEGOvTZXG8H/zV9Gje3d3f7E47t93efl2VM8/g68W9fnvrspjP+svv2Zf1f47HP4fCnH7vp+3Ofw+21t/XWrH1+HvpcjPfT7uz+7LX39dbsPk4flnH+1GfS5wV9mj5Nn6ZP06fp0/Rp+jR9mj5Nn6ZP06fp0/Rp+jR9mj5Nn6ZP06fp0/Rp+jR9mj5Nn6ZP06fp0/Rp+jR9mj5Nn6ZP06fp0/Rp+jR9mj5Nn6ZP06fp0/Rp+jR9mj5Nn6ZP06fp0/Rp+jR9mj5Nn6ZP06fp0/Rp+jR9mj5Nn6ZP06fp0/Rp+jR9mj5Nn6ZP06fp0/Rp+jR9mj5Nn6ZP06fp0/Rp+jR9mj5Nn6ZP06fp0/Rp+jR9mj5Nn6ZP06fp0/Rp+jR9mj5Nn6ZP06fp0/Rp+jR9mj5Nn6ZP06fp0/Rp+jR9mj5Nn6ZP06fp0/Rp+jR9mj5Nn6ZP06fp0/Rp+jR9mj5Nn6ZP06fp0/Rp+jR9mj5Nn6ZP06fp0/Rp+jR9mj5Nn6ZP06fp0/Rp+rTnPuOxz70+L5w99bke+9ce5c1axpiW5eZhv3rHkZP97cNY+1xdrZVWM0fGb9Nmvr4+5DnnyLIc3s289hnjYszjlCNjWaPM8y/g8IDnKHeLagAAAABJRU5ErkJggg=="
+                        draggable="true" (dragstart)="drag1($event)" id="drag{{ column }}" width="50" height="50" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="three wide column">
+
+              <ng-container *ngFor="let cell of this.obstructions; let i = index">
+                <div id="div2"></div>
+              </ng-container>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="extra content">
+    <button class="ui black basic button" (click)="back()">Back</button>
+  </div>
+</div>
+
+
+<div class="ui card" *ngIf="waterFlowingPanel ==true">
+  <div class="content">
+    <div class="header">Waterflow Simulator</div>
+  </div>
+  <div class="content">
+    <div class="ui small feed">
+      <div class="event">
+        <div class="content flowWater">
+          <label>Water Simulation will run as shown below.</label>
+          <br /><br />
+
+          <div class="ui grid">
+            <div class="ten wide column">
+              <div class="ui grid createGrid">
+                <div class="row">
+                  <div class="two wide column" *ngFor="let box of this.waterFlowArray; let flowpoint = index">
+                    <div id="div5" [ngClass]="{
+                      boxSkyBlue: box == 'lightblue',
+                      boxDarkBlue: box == 'darkblue',
+                      boxWhite: box == 'nocolor'
+                    }"></div>
+                  </div>
+                </div>
+                <div class="row" *ngFor="let data of this.array2DWithBlock; let row = index">
+                  <div class="two wide column" *ngFor="let cell of data; let column = index">
+                    <!-- ngClass]="{
+                  boxDarkBlue: this.array2D[row][column] == 'Fill'
+                }" -->
+                    <div id="div1" [ngClass]="{
+                      boxDarkBlue: this.array2DWithBlock[row][column] == 'Fill'
+                    }">
+                      <img *ngIf="this.array2DWithBlock[row][column] == 'B'"
+                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAR8AAACwCAMAAAABtJrwAAAAY1BMVEUAAAD////+/vacnaX++v////oBAAiYm6n9//T7+/+fpq8BAAT//f/4/v0DByIBAAydn6P9+fX7//r4+Pn3+PG/w8uVm6CaoKGTmpv0/f6jpqwBEBkADBQIAAIACBUCAwCSlZxL1hQvAAACFElEQVR4nO3TzVITQRSA0enAIDGMBhDwH97/KZ0gVBnUbwuLc6o3vbv13e7p8vR0e3W+mTccGWPezGNMl6fb7XI1X2w5crEGOvTZXG8H/zV9Gje3d3f7E47t93efl2VM8/g68W9fnvrspjP+svv2Zf1f47HP4fCnH7vp+3Ofw+21t/XWrH1+HvpcjPfT7uz+7LX39dbsPk4flnH+1GfS5wV9mj5Nn6ZP06fp0/Rp+jR9mj5Nn6ZP06fp0/Rp+jR9mj5Nn6ZP06fp0/Rp+jR9mj5Nn6ZP06fp0/Rp+jR9mj5Nn6ZP06fp0/Rp+jR9mj5Nn6ZP06fp0/Rp+jR9mj5Nn6ZP06fp0/Rp+jR9mj5Nn6ZP06fp0/Rp+jR9mj5Nn6ZP06fp0/Rp+jR9mj5Nn6ZP06fp0/Rp+jR9mj5Nn6ZP06fp0/Rp+jR9mj5Nn6ZP06fp0/Rp+jR9mj5Nn6ZP06fp0/Rp+jR9mj5Nn6ZP06fp0/Rp+jR9mj5Nn6ZP06fp0/Rp+jR9mj5Nn6ZP06fp0/Rp+jR9mj5Nn6ZP06fp0/Rp+jR9mj5Nn6ZP06fp0/Rp+jR9mj5Nn6ZP06fp0/Rp+jR9mj5Nn6ZP06fp0/Rp+rTnPuOxz70+L5w99bke+9ce5c1axpiW5eZhv3rHkZP97cNY+1xdrZVWM0fGb9Nmvr4+5DnnyLIc3s289hnjYszjlCNjWaPM8y/g8IDnKHeLagAAAABJRU5ErkJggg=="
+                        draggable="true" (dragstart)="drag1($event)" id="drag{{ column }}" width="50" height="50" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="three wide column">
+
+              <ng-container *ngFor="let cell of this.obstructions; let i = index">
+                <div id="div2">
+                  <!-- <img
+                    *ngIf="cell == 'B'"
+                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAR8AAACwCAMAAAABtJrwAAAAY1BMVEUAAAD////+/vacnaX++v////oBAAiYm6n9//T7+/+fpq8BAAT//f/4/v0DByIBAAydn6P9+fX7//r4+Pn3+PG/w8uVm6CaoKGTmpv0/f6jpqwBEBkADBQIAAIACBUCAwCSlZxL1hQvAAACFElEQVR4nO3TzVITQRSA0enAIDGMBhDwH97/KZ0gVBnUbwuLc6o3vbv13e7p8vR0e3W+mTccGWPezGNMl6fb7XI1X2w5crEGOvTZXG8H/zV9Gje3d3f7E47t93efl2VM8/g68W9fnvrspjP+svv2Zf1f47HP4fCnH7vp+3Ofw+21t/XWrH1+HvpcjPfT7uz+7LX39dbsPk4flnH+1GfS5wV9mj5Nn6ZP06fp0/Rp+jR9mj5Nn6ZP06fp0/Rp+jR9mj5Nn6ZP06fp0/Rp+jR9mj5Nn6ZP06fp0/Rp+jR9mj5Nn6ZP06fp0/Rp+jR9mj5Nn6ZP06fp0/Rp+jR9mj5Nn6ZP06fp0/Rp+jR9mj5Nn6ZP06fp0/Rp+jR9mj5Nn6ZP06fp0/Rp+jR9mj5Nn6ZP06fp0/Rp+jR9mj5Nn6ZP06fp0/Rp+jR9mj5Nn6ZP06fp0/Rp+jR9mj5Nn6ZP06fp0/Rp+jR9mj5Nn6ZP06fp0/Rp+jR9mj5Nn6ZP06fp0/Rp+jR9mj5Nn6ZP06fp0/Rp+jR9mj5Nn6ZP06fp0/Rp+jR9mj5Nn6ZP06fp0/Rp+jR9mj5Nn6ZP06fp0/Rp+jR9mj5Nn6ZP06fp0/Rp+rTnPuOxz70+L5w99bke+9ce5c1axpiW5eZhv3rHkZP97cNY+1xdrZVWM0fGb9Nmvr4+5DnnyLIc3s289hnjYszjlCNjWaPM8y/g8IDnKHeLagAAAABJRU5ErkJggg=="
+                    draggable="true"
+                    (dragstart)="drag1($event)"
+                    id="drag{{ i }}"
+                    width="50"
+                    height="50"
+                  /> -->
+                </div>
+              </ng-container>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="extra content">
+    <button class="ui black basic button" (click)="back()">Back</button>
+    <button class="ui black basic button" (click)="reset()">Reset</button>
+  </div>
+</div>

@@ -1,0 +1,32 @@
+<div class="ui card">
+  <div class="content">
+    <div class="header">Waterflow Simulator</div>
+  </div>
+  <div class="content">
+    <h4 class="ui sub header">Grid Creation</h4>
+    <div class="ui small feed">
+      <div class="event">
+        <div class="content">
+          <div class="gridCreation">
+            <label>Number of rows</label>
+            <ngx-slider [(value)]="value1" [options]="options" (valueChange)="selectedRows($event)"></ngx-slider>
+
+            <br /><br />
+
+            <label>Number of columns</label>
+            <ngx-slider [(value)]="value2" [options]="options" (valueChange)="selectedColumns($event)"></ngx-slider>
+
+            <br /><br />
+
+            <label>Number of obstructions</label>
+            <ngx-slider [(value)]="value3" [options]="options" (valueChange)="selectedObstructions($event)">
+            </ngx-slider>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="extra content">
+    <button class="ui black basic button" (click)="Next()">Next</button>
+  </div>
+</div>
